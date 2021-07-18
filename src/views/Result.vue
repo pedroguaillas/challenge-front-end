@@ -1,14 +1,29 @@
 <template>
-    <div class="container h-100vh">
-	<div class="row row h-100 align-items-center justify-content-centerr">
-		<div class="col align-self-cente ">
-			<div class="card">
-                <router-view />
-			</div>
-		</div>
-	</div>
-</div>
+				<div class="card-header text-center display-4">
+					Resultados de búsqueda de tickets aéreos
+				</div>
+				<div class="card-body">
+				
+					<div v-for="ticket in tickets" :key="ticket.price" class="card border-secondary mb-3" style="max-width: 18rem;">
+						<div class="card-header">{{ticket.airline}}</div>
+						<div class="card-body text-secondary">
+							<p class="card-text"><strong>Precio:</strong> {{ticket.price}}</p>
+							<p class="card-text"><strong>Escalas,:</strong> {{ticket.stopover}}</p>
+							<p class="card-text"><strong>Duración:</strong> {{ticket.duration}}</p>
+						</div>
+					</div>
+				</div>
 </template>
+
+<script>
+import {mapState} from 'vuex'
+
+export default {
+	computed: {
+		...mapState(['tickets'])
+	}
+}
+</script>
 
 <style lang="scss" scoped>
 * {
@@ -29,7 +44,7 @@ body {
 
 .card {
 	margin: 2em auto;
-	max-width: 700px;
+	max-width: 700px !important;
 	border: none;
 	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
 		0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);

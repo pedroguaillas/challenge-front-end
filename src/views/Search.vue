@@ -1,28 +1,24 @@
 <template>
-<div class="container h-100vh">
-	<div class="row row h-100 align-items-center justify-content-centerr">
-		<div class="col align-self-cente ">
-			<div class="card">
 				<div class="card-header text-center display-4">
-					Buscador de tickets aereos
+					Buscador de tickets aéreos
 				</div>
 				<div class="card-body">
 					<form>
 						<div class="form-row">
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-12">
 								<label for="hometown">Ciudad de origen</label>
 								<select id="hometown" class="form-control">
 									<option>Seleccione</option>
-                                    <option v-for="city in hometowns">
+                                    <option v-for="city in hometowns" :key="city">
                                         {{city}}
                                     </option>
 								</select>
 							</div>
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-12">
 								<label for="destinationcity">Ciudad de destino</label>
 								<select id="destinationcity" class="form-control">
 									<option>Seleccione</option>
-									<option v-for="city in destinationcities">
+									<option v-for="city in destinationcities" :key="city">
                                         {{city}}
                                     </option>
 								</select>
@@ -30,7 +26,7 @@
 						</div>
 						<div class="form-row">
 					
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-12">
 								<label for="inputState">Fecha de salida</label>
                                 <input
                                     type="date"
@@ -39,7 +35,7 @@
                                 />
 							</div>
 					
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-12">
 								<label for="inputState">Fecha de retorno</label>
 								<input
                                     type="date"
@@ -51,10 +47,6 @@
 						<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
 					</form>
 				</div>
-			</div>
-		</div>
-	</div>
-</div>
 </template>
 
 <script>
@@ -104,8 +96,8 @@ body {
 }
 
 .card {
-	margin: 0 auto;
-	max-width: 700px;
+	margin: 2em auto;
+	max-width: 700px !important;
 	border: none;
 	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
 		0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
