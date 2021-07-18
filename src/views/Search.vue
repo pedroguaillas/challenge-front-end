@@ -3,7 +3,7 @@
 					Buscador de tickets aéreos
 				</div>
 				<div class="card-body">
-					<form>
+					<form v-on:submit.prevent="onSubmit">
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="hometown">Ciudad de origen</label>
@@ -44,17 +44,17 @@
                                 />
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+            	        <router-link to="/resultado" class="btn btn-primary btn-lg btn-block">Busqueda</router-link>
 					</form>
 				</div>
 </template>
 
 <script>
     import { ref } from "vue";
+    import { router } from "vue-router";
 
 export default {
   name: "Search",
-
   data() {
     const hometown = ref('');
     const destinationcity = ref('');
@@ -75,6 +75,11 @@ export default {
         destinationcities
     };
   },
+  methods: {
+      onSubmit: () => {
+          router.go('resultado'); 
+      }
+  }
 };
 </script>
 

@@ -12,6 +12,7 @@
 							<p class="card-text"><strong>Duración:</strong> {{ticket.duration}}</p>
 						</div>
 					</div>
+            		<router-link to="/" class="btn btn-primary btn-lg btn-block">Nueva busqueda</router-link>
 				</div>
 </template>
 
